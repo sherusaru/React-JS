@@ -1,7 +1,11 @@
 import Expense from "./components/Expenses/Expense";
 
 const App = () => {
-  return <Expense />;
+  const saveExpenseHandler = (saveData) => {
+    console.log(saveData);
+  };
+
+  return <Expense saveExpense = {saveExpenseHandler}/>;
 };
 
 export default App;

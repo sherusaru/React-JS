@@ -1,7 +1,7 @@
 import ExpenseItem from "../Expenses/ExpenseItem";
 import NewExpense from "../NewExpense/NewExpense";
 
-const Expense = () => {
+const Expense = (props) => {
   const expenses = [
     {
       id: "e1",
@@ -28,9 +28,15 @@ const Expense = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = (addNewData) =>{
+    props.saveExpense(addNewData);
+    console.log(addNewData);
+
+  }
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense = {addExpenseHandler} />
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
